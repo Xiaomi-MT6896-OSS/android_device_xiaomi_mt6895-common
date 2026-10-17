@@ -3,7 +3,7 @@ Copyright (C) 2023-2024 The LineageOS Project
 
 SPDX-License-Identifier: Apache-2.0
 -->
-<manifest version="7.0" type="device" target-level="6">
+<manifest version="7.0" type="device" target-level="7">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -75,6 +75,11 @@ SPDX-License-Identifier: Apache-2.0
         <transport>hwbinder</transport>
         <fqname>@3.0::IFingerprintNavigation/default</fqname>
         <fqname>@3.0::IFingerprintSensorTest/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.2::IBluetoothAudioProvidersFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.camera.atms</name>

@@ -1,0 +1,26 @@
+[
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_device_mediatek_sepolicy_vndr",
+    "target_path": "device/mediatek/sepolicy_vndr"
+  },
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_hardware_mediatek",
+    "target_path": "hardware/mediatek"
+  },
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_kernel_xiaomi_mt6895",
+    "target_path": "kernel/xiaomi/mt6895"
+  },
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_vendor_xiaomi_mt6895-common",
+    "target_path": "vendor/xiaomi/mt6895-common"
+  },
+  {
+    "repository": "Xiaomi-MT6896-OSS/android_vendor_mediatek_ims",
+    "target_path": "vendor/mediatek/ims"
+  }
+]

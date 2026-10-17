@@ -34,9 +34,6 @@ on charger
     write /sys/class/leds/lcd-backlight/trigger "backlight-drm"
 
 on fs
-    wait_for_prop hwservicemanager.ready "true"
-    start vendor.boot-hal-1-2
-
     # mount fstab
     mount_all --early
 
@@ -50,8 +47,6 @@ on fs
     restorecon_recursive /mnt/rescue
 
 on late-fs
-    wait_for_prop hwservicemanager.ready "true"
-
     mount_all --late
 
 on post-fs
@@ -336,10 +331,6 @@ on post-fs-data
     # PMIC property
     chown radio system /sys/devices/platform/mt-pmic/low_battery_protect_stop
     chown radio system /sys/devices/platform/mt-pmic/low_battery_protect_ut
-
-    #MDDB
-    mkdir /data/vendor_de/meta 0770 system system
-    mkdir /data/vendor_de/meta/mddb 0770 system system
 
     chown system /sys/devices/platform/msensor/driver/cpsopmode
     chown system /sys/devices/platform/msensor/driver/cpsreptxy
@@ -655,7 +646,6 @@ on post-fs-data
 # End of adding by MTK drivers
 # -----------------------
 on boot
-    write /proc/sys/vm/dirty_writeback_centisecs 300
     chmod 0660 /sys/power/autosleep
 
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
@@ -839,22 +829,6 @@ on boot
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
 
-on property:vold.decrypt=trigger_reset_main
-    setprop sys.boot_completed 0
-    setprop dev.bootcomplete 0
-
-on property:vold.decrypt=trigger_restart_min_framework
-    start msensord
-    start permission_check
-
-on property:vold.decrypt=trigger_restart_framework
-    start msensord
-    start permission_check
-
-on property:vold.decrypt=trigger_shutdown_framework
-    setprop sys.boot_completed 0
-    setprop dev.bootcomplete 0
-
 on property:vendor.audio.cit.spkcal.copy=true
     copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
     chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
@@ -877,7 +851,7 @@ on property:ro.boot.slot_suffix=_b
 on property:vendor.mtk.md1.status=reset
     setprop persist.vendor.atm.mdmode normal
 
-service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
+service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service.mediatek
     override
     class hal
     user audioserver

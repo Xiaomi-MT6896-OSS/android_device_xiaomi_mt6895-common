@@ -71,6 +71,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 bootconfig
+BOARD_KERNEL_CMDLINE += cgroup_disable=memory
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -150,8 +151,9 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.mt6895
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
+# Properties
+TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 
 # Sepolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
@@ -185,7 +187,7 @@ WIFI_FEATURE_SUPPLICANT_11AX := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1

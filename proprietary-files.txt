@@ -1,9 +1,6 @@
 # Unpinned blobs from missi-user 15 AP3A.240905.015.A2 OS3.0.10.0.VMICNXM release-keys
 # Draft split list
 
-# AEE
-vendor/lib64/libaedv.so
-
 # Android hardware sensor bridge
 vendor/lib64/libsensorndkbridge.so
 vendor/lib/libsensorndkbridge.so
@@ -80,9 +77,8 @@ vendor/lib64/libbluetooth_mtk.so
 vendor/lib64/libbt-vendor.so
 
 # Bluetooth (A2DP)
+vendor/lib64/hw/vendor.mediatek.hardware.bluetooth.audio@2.2-impl.so
 vendor/lib64/libbluetooth_audio_session_mediatek.so
-vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
-vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 
 # Connectivity
 vendor/bin/conninfra_loader
@@ -121,7 +117,7 @@ vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
 vendor/lib64/mt6895/libDR.so;SYMLINK=vendor/lib64/libDR.so
-vendor/lib64/mt6895/libmnl.so;SYMLINK=vendor/lib64/libmnl.so
+vendor/lib64/mt6895/libmnl.so:vendor/lib64/mt6895/libmnl_mtk.so;SYMLINK=vendor/lib64/libmnl_mtk.so;FIX_SONAME
 vendor/lib64/librpc.so
 vendor/lib64/libviagpsrpc.so
 
@@ -304,24 +300,18 @@ vendor/lib64/hw/thermal_hal.so
 # Thermal configs
 # SoC/misc deps pulled into common (cross-tree linkage)
 # Display/PQ stack deps (linked from dpframework in common)
-vendor/lib64/libion_ulit.so
-vendor/lib/libion_ulit.so
 vendor/lib64/mt6895/libaiselector.so;SYMLINK=vendor/lib64/libaiselector.so
 vendor/lib/mt6895/libaiselector.so;SYMLINK=vendor/lib/libaiselector.so
 vendor/lib64/mt6895/libpq_prot.so;SYMLINK=vendor/lib64/libpq_prot.so
 vendor/lib/mt6895/libpq_prot.so;SYMLINK=vendor/lib/libpq_prot.so
 vendor/lib64/vendor.mediatek.hardware.pq@2.0.so
 vendor/lib/vendor.mediatek.hardware.pq@2.0.so
-vendor/lib64/libladder.so
-vendor/lib/libladder.so
 vendor/lib64/mt6895/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
 vendor/lib/mt6895/libdpframework.so;SYMLINK=vendor/lib/libdpframework.so
 vendor/lib64/libged.so
 vendor/lib/libged.so
 vendor/lib64/mt6895/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
 vendor/lib/mt6895/libmtk_drvb.so;SYMLINK=vendor/lib/libmtk_drvb.so
-vendor/lib64/libion_mtk.so
-vendor/lib/libion_mtk.so
 vendor/lib64/libgralloc_extra.so
 vendor/lib/libgralloc_extra.so
 vendor/lib64/libccci_util.so
@@ -400,7 +390,6 @@ vendor/lib/libMtkSpeechEnh.so
 vendor/lib/lib_iir.so
 vendor/lib/lib_speech_enh.so
 vendor/lib/libadpcmdec_mtk.so
-vendor/lib/libaedv.so
 vendor/lib/libalacdec_mtk.so
 vendor/lib/libapu_mdw.so
 vendor/lib/libapu_mdw_batch.so
@@ -503,8 +492,6 @@ vendor/lib/vendor.mediatek.hardware.audio@6.1.so
 vendor/lib/vendor.mediatek.hardware.audio@7.1.so
 vendor/lib/vendor.mediatek.hardware.audio@8.1.so
 vendor/lib/libbluetooth_audio_session_mediatek.so
-vendor/lib/vendor.mediatek.hardware.bluetooth.audio@2.1.so
-vendor/lib/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 vendor/lib/vendor.mediatek.hardware.mmagent@1.0.so
 vendor/lib/vendor.mediatek.hardware.mms@1.0.so
 vendor/lib/vendor.mediatek.hardware.mms@1.1.so
