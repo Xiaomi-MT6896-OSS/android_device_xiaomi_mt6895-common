@@ -350,7 +350,6 @@ $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
 PRODUCT_PACKAGES += \
     wpa_supplicant \
     hostapd \
-    lib_driver_cmd_mt66xx \
     libwifi-hal-wrapper \
     wlan_assistant \
     android.hardware.wifi-service
