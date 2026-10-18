@@ -54,7 +54,6 @@ vendor/lib64/soundfx/libdynproc.so
 vendor/lib64/soundfx/libmisoundfx.so
 
 # Audio Hardware
-vendor/bin/hw/android.hardware.audio.service.mediatek
 vendor/lib64/hw/android.hardware.audio@6.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.audio@7.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.audio@7.1-impl-mediatek.so
