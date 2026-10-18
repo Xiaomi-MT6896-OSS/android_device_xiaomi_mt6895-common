@@ -352,6 +352,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     lib_driver_cmd_mt66xx \
     libwifi-hal-wrapper \
+    wlan_assistant \
     android.hardware.wifi-service
 
 PRODUCT_PACKAGES += \
