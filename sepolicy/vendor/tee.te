@@ -1,4 +1,4 @@
-type proc_mitee_log, fs_type, proc_type;
+# proc_mitee_log is declared by device/mediatek/sepolicy_vndr/base/vendor/file.te
 allow tee proc_mitee_log:file r_file_perms;
 
 allow tee mitee_client_device:chr_file rw_file_perms;
